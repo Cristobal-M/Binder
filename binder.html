@@ -1,0 +1,82 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>The HTML5 Herald</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <p>
+    Propiedad "prueba"
+  </p>
+  <input ie-bind-input="prueba">
+  <input ie-bind-input="prueba">
+
+<p>
+Propiedad "hola"
+</p>
+<input ie-bind-input="hola">
+<input ie-bind-input="hola">
+<input ie-bind-input="hola">
+
+<div ie-template="true" >
+el contenido del hola: "{{{ %%hola }}}" y prueba: "{{{ %%prueba }}}" Dentro de un span: <span>{{{ (%%hola).slice(0,2 )}}}</span>
+<br>Input con value establecido por plantilla<input value="{{{%%hola}}}" />
+</div>
+
+<div ie-each="cosa in cosas">
+<p ie-template="true" >{{{ %%cosa }}}</p>
+</div>
+
+<img ie-title="title"></img>
+
+<div id="test-container">
+
+</div>
+<script src="bundle.js"></script>
+<script src="proxy.min.js"></script>
+
+<script>
+var count=1000;
+var el = document.getElementById('test-container');
+for (var i = 0; i < count; i++) {
+  var e = document.createElement('div');
+  e.innerHTML = '<input ie-bind-input="test.' + 0 + '">';
+  el.appendChild(e);
+}
+
+console.log("CCCCCCCCCCCCCCCCC")
+var binder = new Binder.Binder(document.body);
+console.log("XXXXXXXXXXXXXXXXXXX")
+window.modelo = binder.getScope();
+
+
+window.modelo.test = [];
+
+
+for (var i = 0; i < count; i++) {
+  window.modelo.test.push(i + 10);
+}
+console.log("XXXXXXXXXXXXXXXXXXX")
+
+/*
+setInterval(function(){
+  for (var i = 0; i < count; i++) {
+    window.modelo.test[i] += 10;
+  }
+ }, 3000);
+*/
+
+</script>
+</body>
+</html>

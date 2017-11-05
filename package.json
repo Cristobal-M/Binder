@@ -1,0 +1,16 @@
+{
+  "name": "binder",
+  "version": "0.0.5",
+  "description": "Library to bind propertys through attributes and other things",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cristobal Molina",
+  "license": "GPL",
+  "devDependencies": {
+    "awesome-typescript-loader": "^3.2.3",
+    "webpack": "^3.8.1"
+  },
+  "dependencies": {}
+}
